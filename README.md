@@ -2,7 +2,9 @@
 
 A computer program that look at a bridge hand and decide how many points it's worth.
 In our program, we'll represent a card by a word like `h5` (five of hearts) or dk (king of diamonds).
-A hand will be a sentence of cards, like this:
+A hand will b
+e a sentence of cards, like this:
+
 `(sa s10 s7 s6 s2 hq hj h9 ck c4 dk d9 d3)`
 
 [Scoring Bridge Hands](https://people.eecs.berkeley.edu/~bh/ssch9/bridge.html) is
