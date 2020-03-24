@@ -26,9 +26,13 @@
     (test-suite
      "scoring bridge hands tests"
 
-     (test-equal? "returns 2" (card-val 'cq) 2)
      (test-equal? "returns 0" (card-val 's7) 0)
+     (test-equal? "returns 1" (card-val 'dj) 1)
+     (test-equal? "returns 2" (card-val 'cq) 2)
+     (test-equal? "returns 3" (card-val 'sk) 3)
      (test-equal? "returns 4" (card-val 'ha) 4)
+     
+     
      
      (test-equal? "returns 9" (high-card-points '(sa s10 hq ck c4)) 9)
      (test-equal? "returns 13" (high-card-points '(sa s10 s7 s6 s2 hq hj h9 ck c4 dk d9 d3)) 13)
