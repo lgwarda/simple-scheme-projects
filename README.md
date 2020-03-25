@@ -24,7 +24,7 @@ The objectivs are:
 - Run the test suite and make sure that it succeeds
 
 * * * *
-You need [racket](https://racket-lang.org/) and [simply-scheme package](https://docs.racket-lang.org/manual@simply-scheme/index.html) to run the program.
+You need [racket](https://racket-lang.org/) and [simply-scheme package](https://pkgs.racket-lang.org/package/simply-scheme) to run the program.
 
 You can run the provided tests through DrRacket, or via the command line.
 
