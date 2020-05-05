@@ -16,9 +16,10 @@
 
 ; Exercise 2 - Define remove-once
 (define (remove-once wd sent)
-  ; your code here
- (error "Not yet implemented")
-)
+  (cond [(empty? sent) '()]
+        [else (if (equal? wd (first sent))
+                          (bf sent)
+                          (se (first sent) (remove-once wd (bf sent))))]))
 
 ; Exercise 3 - Define differences
 (define (differences nums)

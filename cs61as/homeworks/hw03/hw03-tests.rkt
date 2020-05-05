@@ -31,8 +31,15 @@
     (check sent-equal? (describe-time 345600) '(4 DAYS 0 SECONDS))
     (check sent-equal? (describe-time 550441) '(6 DAYS 8 HOURS 54 MINUTES 1 SECONDS)))
    (define/test
-    remove-once-tests
-    (check-equal? (remove-once 'morning '(good morning good morning)) '(good good morning)))
+     remove-once-tests
+     (check-equal? (remove-once 'morning '())
+                   '())
+     (check-equal? (remove-once 'evening '(good morining good morning))
+                   '(good morining good morning))
+     (check-equal? (remove-once 'good '(good morning good morning))
+                   '(morning good morning))
+     (check-equal? (remove-once 'morning '(good morning good morning))
+                   '(good good morning)))
     
    (define/test
     differences-tests
