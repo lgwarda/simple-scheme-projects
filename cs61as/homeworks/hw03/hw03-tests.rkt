@@ -43,13 +43,13 @@
     
    (define/test
     differences-tests
-    (check-equal? (differences '(4 23 9 87 6 12)) '(19 -14 78 -81 6))
+     (check-equal? (differences '(4 23 9 87 6 12)) '(19 -14 78 -81 6)))
    
    (define/test
     location-tests
     (check-equal? (location 'me '(you never give me your money)) 4)
-    (check-equal? (location 'i '(you never give me your money))) #f)
-    (check-equal? (location 'the '(the fork and the spoon))) 1)
+    (check-equal? (location 'i '(you never give me your money)) #f)
+    (check-equal? (location 'the '(the fork and the spoon))1))
     
    (define/test
     initials-tests

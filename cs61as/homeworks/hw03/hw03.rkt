@@ -23,9 +23,9 @@
 
 ; Exercise 3 - Define differences
 (define (differences nums)
-  ;your code here
- (error "Not yet implemented")
-)
+  (cond [(= (count nums) 1) '()]
+        [else (se (- (first (bf nums)) (first nums))
+                  (differences (bf nums)))]))
 
 ; Exercise 4 - Define location
 (define (location small big)
