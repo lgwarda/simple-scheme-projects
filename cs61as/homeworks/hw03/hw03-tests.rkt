@@ -49,24 +49,30 @@
     location-tests
     (check-equal? (location 'me '(you never give me your money)) 4)
     (check-equal? (location 'i '(you never give me your money)) #f)
-    (check-equal? (location 'the '(the fork and the spoon))1))
+    (check-equal? (location 'the '(the fork and the spoon)) 1))
     
    (define/test
-    initials-tests
-    (check-equal? (initials '(if i needed someone))'(i i n s)))
-    
+     initials-tests
+     (check-equal? (initials '()) '())
+     (check-equal? (initials '(if i needed someone)) '(i i n s))
+     (check-equal? (initials '(u s a)) '(u s a))
+     (check-equal? (initials '(she loves you)) '(s l y)))
+
+  
     
    (define/test
-    copies-tests
-    (check-equal?
-     (copies 8 'spam)) '(spam spam spam spam spam spam spam spam))
+     copies-tests
+     (check-equal? (copies 0 'spam) '())
+     (check-equal? (copies 8 'spam) '(spam spam spam spam spam spam spam spam)))
      
     
     
     
    (define/test
-    gpa-tests
-    (check-equal? (gpa '(A A+ B+ B)) 3.67))
+     gpa-tests
+     (check-= (gpa '(F)) 0 0.01)
+     (check-= (gpa '(A B A B))  3.5 0.01)
+     (check-= (gpa '(A A+ B+ B)) 3.665 0.01))
     
     
     

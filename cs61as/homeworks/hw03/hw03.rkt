@@ -29,27 +29,49 @@
 
 ; Exercise 4 - Define location
 (define (location small big)
-  ; your code here
- (error "Not yet implemented")
-)
+  (helper small big 1))
+
+(define (helper small big counter)
+ (cond [(empty? big) #f]
+       [else (if (equal? small  (first big))
+                 counter
+                 (helper small (bf big) (+ counter 1)))]))
 
 ; Exercise 5 - Define initials
 (define (initials sent)
-  ; your code here
- (error "Not yet implemented")
-)
+ (cond [(empty? sent) '()]
+       [else (se (first (first sent)) (initials (bf sent)))]))
 
 ; Exercise 6 - Define copies
 (define (copies num wd)
-  ; your code here
- (error "Not yet implemented")
-)
+ (cond [(zero? num) '()]
+       [else (se wd (copies (- num 1) wd))]))
 
 ; Exercise 7 - Define gpa
 (define (gpa grades)
-  ; your code here
- (error "Not yet implemented")
-)
+  (/ (gpa-helper grades) (count grades)))
+
+(define (gpa-helper grades)
+  (cond [(equal? (count grades) 1) (combine (first grades))]
+        [else (+ (combine (first grades))
+                 (gpa-helper (bf grades)))]))
+
+(define (combine grade)
+  (+ (base-grade grade)
+     (grade-modifier grade)))
+
+(define (base-grade grade)
+  (cond [(equal? (first grade) 'A) 4.0]
+        [(equal? (first grade) 'B) 3.0]
+        [(equal? (first grade) 'C) 2.0]
+        [(equal? (first grade) 'D) 1.0]
+        [(equal? (first grade) 'F) 0.0]))
+
+(define (grade-modifier grade)
+  (cond [(equal? (last grade) '+)  0.33]
+        [(equal? (last grade) '-) -0.33]
+        [else 0]))
+  
 
 ; Exercise 8 - Define repeat-words
 (define (repeat-words sent)
