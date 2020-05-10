@@ -9,10 +9,10 @@
   (cond [(> (quotient x 86400) 0)
          (se (quotient x 86400) 'DAYS (describe-time (remainder x 86400)))]
         [(> (quotient x 3600)  0)
-         (se (quotient x 3600) `HOURS (describe-time (remainder x 3600)))]
+         (se (quotient x 3600) 'HOURS (describe-time (remainder x 3600)))]
         [(> (quotient x 60) 0)
-         (se (quotient x 60) `MINUTES (describe-time (remainder x 60)))]
-        [else (se x `SECONDS)]))
+         (se (quotient x 60) 'MINUTES (describe-time (remainder x 60)))]
+        [else (se x 'SECONDS)]))
 
 ; Exercise 2 - Define remove-once
 (define (remove-once wd sent)
@@ -49,7 +49,8 @@
 
 ; Exercise 7 - Define gpa
 (define (gpa grades)
-  (/ (gpa-helper grades) (count grades)))
+  (/ (gpa-helper grades)
+     (count grades)))
 
 (define (gpa-helper grades)
   (cond [(equal? (count grades) 1) (combine (first grades))]
@@ -72,15 +73,22 @@
         [(equal? (last grade) '-) -0.33]
         [else 0]))
   
-
 ; Exercise 8 - Define repeat-words
 (define (repeat-words sent)
-  ; your code here
- (error "Not yet implemented")
-)
+    (cond [(empty? sent) '()]
+          [else (if (number? (first sent))
+                    (se (copies (first sent) (second sent))
+                        (repeat-words (bf (bf sent))))
+                    (se (first sent)
+                        (repeat-words (bf sent))))]))
 
 ; Exercise 9 - Define same-shape?
 (define (same-shape? sent1 sent2)
-  ; your code here
- (error "Not yet implemented")
-)
+  (and (equal? (count sent1) (count sent2))
+       (equal? (count-letters sent1)(count-letters sent2))))
+
+(define (count-letters sent)
+    (if (empty? sent)
+        '()
+        (se (count (first sent))
+            (count-letters (bf sent)))))

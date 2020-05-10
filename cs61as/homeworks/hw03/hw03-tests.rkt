@@ -83,12 +83,9 @@
      (check-equal? (repeat-words '(the 7 samurai))
                    '(the samurai samurai samurai samurai samurai samurai samurai)))
     
-    
    (define/test
-    same-shape?-tests
-     (check-equal? (same-shape? '(the fool on the hill)
-                                '(you like me too much)) #t)
-     (check-equal? (same-shape?  '(the fool on the hill)
-                                 '(and your bird can sing))#f))
+    same-shape-tests
+     (check-equal? (same-shape? '(the fool on the hill)'(you like me too much)) #t)
+     (check-equal? (same-shape?  '(the fool on the hill)'(and your bird can sing)) #f))
 
    all-names)
