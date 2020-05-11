@@ -58,6 +58,4 @@
   "sum-primes tests" 
   (test-equal? "should return a number 2" (sum-primes 2) 2)
   (test-equal? "should return a number 10" (sum-primes 10) 17)
-  (test-equal? "should return a number 73156" (sum-primes 977) 73156)
-
-)))
+  (test-equal? "should return a number 73156" (sum-primes 977) 73156))))
