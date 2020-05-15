@@ -15,10 +15,10 @@
 ; Exercise 2 - Define count-word
 
 (define (count-word sent wd)
-  ; Your code here
-  (error "Not yet implemented")
-)
-
+  (cond [(empty? sent) 0]
+        [else (if (equal? (first sent) wd)
+                  (+ 1 (count-word (bf sent) wd))
+                  (count-word (bf sent) wd))]))
 ; Exercise 3
 
 (define (pigl wd)
@@ -34,16 +34,14 @@
 
 ; Explain what would happen if you used new-if instead of if below.
 #|
-Your explanation here
+
 
 |#
 
 ; Exercise 4 - Define squares
 
 (define (squares sent)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (every sqr sent))
 
 ; Exercise 5 - Define switch
 
