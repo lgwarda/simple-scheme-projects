@@ -46,23 +46,29 @@
 ; Exercise 5 - Define switch
 
 (define (switch sent)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (if (equal? (first sent) 'you)
+      (se 'I (bf (every replace sent)))
+      (every replace  sent)))
+
+
+(define (replace wd)
+  (cond [(equal? wd 'I) 'you]
+        [(equal? wd 'me)'you]
+        [(equal? wd 'you) 'me]
+        [else wd]))
+
 
 ; Exercise 6 - Define ordered?
 
 (define (ordered? sent)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (cond [(empty? (bf sent)) #t]
+        [else (and (< (first sent) (first (butfirst sent)))
+                   (ordered? (butfirst sent)))]))
 
 ; Exercise 7 - Define ends-e
 
 (define (ends-e sent)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (keep (lambda (wd) (equal? 'e (last wd))) sent))
 
 ; Exercise 8
 
