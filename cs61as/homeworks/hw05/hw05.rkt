@@ -16,34 +16,34 @@
 
 #|
 (lambda (x) (+ x 3))
--> returns:
+-> returns: a procedure
 
 ((lambda (x) (+ x 3)) 7)
--> returns:
+-> returns: 10
 
 (define (make-adder num)
   (lambda (x) (+ x num))) 
 ((make-adder 3) 7)
--> returns:
+-> returns: 10
 
 (define plus3 (make-adder 3)) 
 (plus3 7)
--> returns:
+-> returns: 10
 
 (define (square x) (* x x)) 
 (square 5)
--> returns:
+-> returns: 25
 
 (define square (lambda (x) (* x x))) 
 (square 5)
--> returns
+-> returns: 25
 
 (define (try f) (f 3 5)) 
 (try +)
--> returns:
+-> returns: 8
 
 (try word)
--> returns:
+-> returns: 35
 |#
 
 
