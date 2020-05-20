@@ -58,6 +58,12 @@ Type of value returned by g: a procedure
 
 ; Exercise 4 - Define f1, f2, f3, f4, and f5
 
+(define f1 1)                                     ; 1
+(define (f2) 2)                                   ; 2 
+(define (f3 x) 3)                                 ; 3      
+(define (f4) (lambda () 4 ))                      ; 4
+(define (f5) (lambda () (lambda (x) (+ x 2))))    ; 5
+
 ; Exercise 5 - Try out the expressions
 
 (define (t f) 
