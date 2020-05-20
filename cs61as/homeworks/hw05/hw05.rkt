@@ -50,9 +50,9 @@
 ; Exercise 3
 #|
 
-Number of arguments g has: 
+Number of arguments g has: zero arguments
 
-Type of value returned by g:
+Type of value returned by g: a procedure
 
 |#
 
