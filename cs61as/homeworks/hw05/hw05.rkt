@@ -85,11 +85,11 @@ Type of value returned by g: a procedure
 
 #|
 
-1. ((t s) 0) returns:
+1. ((t s) 0) returns: 3
 
-2. ((t (t s)) 0) returns:
+2. ((t (t s)) 0) returns: 9
 
-3. (((t t) s) 0) returns:
+3. (((t t) s) 0) returns: 27
 
 |#
 
