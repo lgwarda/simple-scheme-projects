@@ -96,9 +96,9 @@ Type of value returned by g: a procedure
 ; Exercise 7 - Define make-tester
 
 (define (make-tester wd)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (lambda (x) (equal? x wd)))
+
+(define sicp-author-and-astronomer? (make-tester 'gerry))
 
 ; Exercise 8 - SICP exercises
 
