@@ -119,21 +119,17 @@ Type of value returned by g: a procedure
 ;; This is called my-accumulate so it doesn't conflict with Simply
 ;; Scheme's accumulate.
 (define (my-accumulate combiner null-value term a next b)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (cond [(> a b) null-value]
+        [else (combiner (term a)
+                        (my-accumulate combiner null-value term (next a) next b))]))
 
 ;; Write sum in terms of my-accumulate:
 (define (sum-accum term a next b)
-  ; Your code here
-  (error "Note yet implemented")
-)
-
+  (my-accumulate + 0 a next b))
 ;; Write product in terms of my-accumulate:
 (define (product-accum term a next b)
-  ; Your code here
-  (error "Note yet implemented")
-)
+  (my-accumulate * 1 a next b))
+
 
 
 ; SICP 1.33
