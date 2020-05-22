@@ -105,14 +105,25 @@ Type of value returned by g: a procedure
 ; SICP 1.31a
 
 (define (product term a next b)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (cond [(> a b) 1] 
+        [else (* (term a)
+                 (product term (next a) next b))]))
+
+(define (factorial n)
+  (product identity 1 next n))
+
+(define (identity x) x)
+
+(define (next x) (+ x 1))
 
 (define (estimate-pi)
-  ; Your code here
-  (error "Not yet implemented")
-)
+ (* (product pi-term 1 next 100) 4.0))
+
+;computes approximations to pi using john wallis' formula
+(define (pi-term n) 
+   (if (even? n) 
+       (/ (+ n 2) (+ n 1)) 
+       (/ (+ n 1) (+ n 2)))) 
 
 ; SICP 1.32a
 
