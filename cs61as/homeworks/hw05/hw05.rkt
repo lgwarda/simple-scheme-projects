@@ -137,6 +137,7 @@ Type of value returned by g: a procedure
 ;; Write sum in terms of my-accumulate:
 (define (sum-accum term a next b)
   (my-accumulate + 0 a next b))
+
 ;; Write product in terms of my-accumulate:
 (define (product-accum term a next b)
   (my-accumulate * 1 a next b))
@@ -146,22 +147,23 @@ Type of value returned by g: a procedure
 ; SICP 1.33
 
 (define (filtered-accumulate combiner null-value term a next b pred)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (cond [(> a b) null-value]
+        [else (combiner 
+               (if (pred a)
+                   (term a)
+                   null-value) 
+               (filtered-accumulate combiner null-value term (next a) next b pred))]))
 
 (define (sum-sq-prime a b)
-  ; Your code here
-  (error "Not yet implemented")
-)
+(filtered-accumulate + 0 square a next b prime?))
 
 (define (rel-prime? x y)
   (= (gcd x y) 1))
 
 (define (prod-of-some-numbers n)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (define (filtred x)
+    (rel-prime? x n))
+ (filtered-accumulate * 1 identity 1 next n filtred))
 
 ; SICP 1.40 - Define cubic
 
