@@ -193,9 +193,10 @@ Type of value returned by g: a procedure
 ; Exercise 9 - Define my-every
 
 (define (my-every proc sent)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (if (empty? sent)
+      '()
+      (se (proc (first sent))
+          (my-every proc (bf sent)))))
 
 ; Exercise 10 - Try out the expressions
 
