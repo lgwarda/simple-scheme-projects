@@ -203,24 +203,26 @@ Type of value returned by g: a procedure
 #|
 
 (every (lambda (letter) (word letter letter)) 'purple)
--> returns:
+-> returns: a sentece of two letter words == '(pp uu rr pp ll ee)
 
 (every (lambda (number) (if (even? number) (word number number) number))
        '(781 5 76 909 24))
--> returns:
+-> returns: a sentence of numbers; procedure repeats a number,
+            if the number is even == '(781 5 7676 909 2424)
 
 (keep even? '(781 5 76 909 24))
--> returns:
+-> returns: a sentence of even numbers == '(76 24)
 
 (keep (lambda (letter) (member? letter 'aeiou)) 'bookkeeper)
 -> returns:
 
 (keep (lambda (letter) (member? letter 'aeiou)) 'syzygy)
--> returns:
+-> returns: a word containing only vowels === 'ooeee
 
 (keep (lambda (letter) (member? letter 'aeiou)) '(purple syzygy))
--> returns:
+-> returns: an error, member? expects a letter as an argument, but gets a word
 
 (keep (lambda (wd) (member? 'e wd)) '(purple syzygy))
--> returns:
+-> returns:  a sentence of words that containing a ltetter 'e == '(purple) 
 |#
+
