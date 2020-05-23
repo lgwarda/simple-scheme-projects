@@ -178,9 +178,7 @@ Type of value returned by g: a procedure
 ; SICP 1.41 - Define double
 
 (define (double proc)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (lambda (x) (proc (proc x))))
 
 ; SICP 1.43 - Define repeated
 
