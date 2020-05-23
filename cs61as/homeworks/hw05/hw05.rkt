@@ -168,9 +168,12 @@ Type of value returned by g: a procedure
 ; SICP 1.40 - Define cubic
 
 (define (cubic a b c)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (define (cube x) (* x x x))
+  (lambda (x)
+    (+ (cube x)
+       (* a (square x))
+       (* b x)
+       c)))
 
 ; SICP 1.41 - Define double
 
