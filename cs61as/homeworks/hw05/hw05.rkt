@@ -183,9 +183,12 @@ Type of value returned by g: a procedure
 ; SICP 1.43 - Define repeated
 
 (define (my-repeated proc n)
-  ; Your code here
-  (error "Not yet implemented")
-)
+ (if (< n 1) 
+     (lambda (x) x) 
+     (compose proc (my-repeated proc (- n 1)))))
+#;
+(define (compose f g)
+  (lambda (x) (f (g x))))
 
 ; Exercise 9 - Define my-every
 
