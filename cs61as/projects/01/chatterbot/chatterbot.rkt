@@ -53,13 +53,61 @@
 
 ;;Q2 - stupidbot-creator
   (define (stupidbot-creator motto)
-   (lambda (x) (se motto)))
+   (lambda (x) motto))
 
 ;;Q3 - matcherbot-creator
   (define (matcherbot-creator pattern)
-    ;;insert your answer here
-    (error "not yet implemented")
-  )
+  (lambda (sent) (cond
+                   [(empty? pattern) sent]
+                   [(match? pattern sent) (folows-the-pattern pattern sent)] 
+                   [else #f])))
+;                                                     
+;                                                     
+;                                                     
+;                                                     
+;   ;;             ;;                                 
+;    ;              ;                                 
+;    ;              ;                                 
+;    ;              ;                                 
+;    ; ;;    ;;;    ; ;; ;;;;   ;;;   ;; ;;  ;;;   ;  
+;    ;;  ;  ;   ;   ;  ;;   ;; ;   ;   ;;   ;  ;   ;  
+;    ;   ;  ;;;;;   ;  ;     ; ;;;;;   ;    ;         
+;    ;   ;  ;       ;  ;     ; ;       ;     ;;       
+;    ;   ;  ;       ;  ;     ; ;       ;    ;  ;      
+;    ;   ;  ;;  ;   ;  ;    ;  ;;  ;   ;    ;  ;   ;  
+;   ;;; ;;;  ;;;;  ;;; ;;;;;    ;;;;  ;;;   ;;;;   ;  
+;                      ;                              
+;                      ;                              
+;                     ;;;                             
+;                                                     
+
+(define (match? a b)
+  (cond [(equal? a (index-before b (count a))) #t]
+        [(equal? (count a) (count b)) (equal? a b)]
+        [else (match? a (bf b))]))
+
+ (define (folows-the-pattern pattern sent)
+    (cond [(equal? pattern (index-before sent (count pattern))) (index-after sent (count pattern))]
+          [(equal? (count pattern) (count sent)) (equal? pattern sent)]
+          [else (folows-the-pattern pattern (bf sent))]))
+
+; Sentence Number -> Sentence
+; produce a sentence contains elements before the given num inclusive>
+; > (index-before '(a b c d) 2)
+; '(a b)
+(define (index-before sent num)
+    (cond [(zero? num )'()]
+          [else (se (first sent)
+                    (index-before (bf sent) (- num 1)))]))
+
+; Sentence Number -> Sentence
+; produce a sentence contains only element after the given num inclusive
+; > (index-after '(a b c d) 2)
+; '(c d)
+
+(define (index-after sent num)
+    (cond [(zero? num) sent]
+          [else (index-after (bf sent) (- num 1))]))
 
 ;;Q4 - substitutebot-creator
   (define (substitutebot-creator from to)
