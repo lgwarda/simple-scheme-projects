@@ -57,10 +57,11 @@
 
 ;;Q3 - matcherbot-creator
   (define (matcherbot-creator pattern)
-  (lambda (sent) (cond
-                   [(empty? pattern) sent]
-                   [(match? pattern sent) (folows-the-pattern pattern sent)] 
-                   [else #f])))
+    (lambda (sent) (cond
+                     [(empty? sent) '()]
+                     [(empty? pattern) sent]
+                     [(match? pattern sent) (folows-the-pattern pattern sent)] 
+                     [else #f])))
 ;                                                     
 ;                                                     
 ;                                                     
