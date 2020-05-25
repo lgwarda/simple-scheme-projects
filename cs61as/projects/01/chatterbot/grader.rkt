@@ -17,7 +17,15 @@
         '(I am babybot)
         "test 1")
       ;; Add more tests here
-    )
+      (check-equal?
+       (babybot '(are you repeating everything I said?))
+       '(are you repeating everything I said?)
+       "test 2")
+      
+      (check-equal?
+       (babybot '())
+       '())
+      "test 3")
 
     (test-case
       "stupidbot-creator"
@@ -26,7 +34,14 @@
         '(I am Groot)
         "test 1")
       ;; Add more tests here
-    )
+      (check-equal?
+       ((stupidbot-creator '()) '(Argggh!))
+        '()
+        "test 2")
+      (define dalek (stupidbot-creator '(exterminate!)))
+      (check-equal?
+       (dalek '())'(exterminate!))
+      "test 3")
 
     (test-case
       "matcherbot-creator"
@@ -39,7 +54,19 @@
         #f
         "test 2")
       ;; Add more tests here
-    )
+      (define cedric (matcherbot-creator '(hufflepuffs are great)))
+      (check-equal?
+       (cedric '(Ha! hufflepuffs are great))
+       '()
+      "test 3")
+    (check-equal?
+     ((matcherbot-creator '()) '(hufflepuffs are great))
+     '(hufflepuffs are great)
+     "test 4")
+    (check-equal?
+     ((matcherbot-creator '(Wha?)) '())
+     '()
+     "test 5"))
 
     (test-case
       "substitutebot-creator"
