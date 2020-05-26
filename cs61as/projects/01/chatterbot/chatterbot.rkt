@@ -60,7 +60,7 @@
     (lambda (sent) (cond
                      [(empty? sent) '()]
                      [(empty? pattern) sent]
-                     [(match? pattern sent) (folows-the-pattern pattern sent)] 
+                     [(match? pattern sent) (follows-the-pattern pattern sent)] 
                      [else #f])))
 ;                                                     
 ;                                                     
@@ -87,10 +87,10 @@
         [(equal? (count a) (count b)) (equal? a b)]
         [else (match? a (bf b))]))
 
- (define (folows-the-pattern pattern sent)
+ (define (follows-the-pattern pattern sent)
     (cond [(equal? pattern (index-before sent (count pattern))) (index-after sent (count pattern))]
           [(equal? (count pattern) (count sent)) (equal? pattern sent)]
-          [else (folows-the-pattern pattern (bf sent))]))
+          [else (follows-the-pattern pattern (bf sent))]))
 
 ; Sentence Number -> Sentence
 ; produce a sentence contains elements before the given num inclusive>
