@@ -112,7 +112,7 @@
 
 ;;Q4 - substitutebot-creator
   (define (substitutebot-creator from to)
-  (lambda (sent) (substitute from to sent)))
+    (lambda (sent) (substitute from to sent)))
 ;                                                     
 ;                                                     
 ;                                                     
