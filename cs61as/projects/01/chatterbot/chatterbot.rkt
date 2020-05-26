@@ -112,9 +112,40 @@
 
 ;;Q4 - substitutebot-creator
   (define (substitutebot-creator from to)
-    ;;insert your answer here
-    (error "not yet implemented")
-  )
+  (lambda (sent) (substitute from to sent)))
+;                                                     
+;                                                     
+;                                                     
+;                                                     
+;   ;;             ;;                                 
+;    ;              ;                                 
+;    ;              ;                                 
+;    ;              ;                                 
+;    ; ;;    ;;;    ; ;; ;;;;   ;;;   ;; ;;  ;;;   ;  
+;    ;;  ;  ;   ;   ;  ;;   ;; ;   ;   ;;   ;  ;   ;  
+;    ;   ;  ;;;;;   ;  ;     ; ;;;;;   ;    ;         
+;    ;   ;  ;       ;  ;     ; ;       ;     ;;       
+;    ;   ;  ;       ;  ;     ; ;       ;    ;  ;      
+;    ;   ;  ;;  ;   ;  ;    ;  ;;  ;   ;    ;  ;   ;  
+;   ;;; ;;;  ;;;;  ;;; ;;;;;    ;;;;  ;;;   ;;;;   ;  
+;                      ;                              
+;                      ;                              
+;                     ;;;                             
+; 
+
+
+  (define (substitute from to sent)
+    (cond [(empty? sent) '()]
+          [else (if (member? (first sent) from)
+                    (se (correspond from to (first sent)) 
+                        (substitute from to (bf sent)))
+                    (se (first sent) (substitute from to (bf sent))))]))
+
+  (define (correspond from to sub)
+    (cond [(empty? from) '()]
+          [else (if (equal? (first from) sub)
+                    (first to)
+                    (correspond (bf from) (bf to) sub))]))
 
 ;;Q5 - switcherbot
   (define (switcherbot sent)
