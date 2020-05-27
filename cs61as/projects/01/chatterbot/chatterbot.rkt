@@ -160,15 +160,18 @@
 
 ;;Q6 - inquisitivebot
  (define (inquisitivebot sent)
-  (if (empty? sent)
+   (if (empty? sent)
       '()
       (se (switcherbot sent) '?)))
 
 ;;Q7 - eliza
-  (define (eliza sent)
-    ;;insert your answer here
-    (error "not yet implemented")
-  )
+ (define (eliza sent)
+   (define reply (matcherbot-creator '(I am)))
+   (cond [(empty? sent) '(how can I help you ?)]
+         [(equal? (first sent) 'hello) '(hello there!)]
+         [(equal? (last sent) '?) '(I can not answer your question.)]
+         [(match? '(I am) sent) (se '(why are you) (inquisitivebot (reply sent)))]
+         [else (switcherbot sent)]))
 
 ;;Q8 - reactorbot-creator
   (define (reactorbot-creator bot pat out)
