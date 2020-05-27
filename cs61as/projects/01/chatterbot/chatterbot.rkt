@@ -159,11 +159,11 @@
 
 
 ;;Q6 - inquisitivebot
-  (define (inquisitivebot sent)
-    ;;insert your answer here
-    (error "not yet implemented")
-  )
-  
+ (define (inquisitivebot sent)
+  (if (empty? sent)
+      '()
+      (se (switcherbot sent) '?)))
+
 ;;Q7 - eliza
   (define (eliza sent)
     ;;insert your answer here
