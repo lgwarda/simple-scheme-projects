@@ -148,10 +148,14 @@
                     (correspond (bf from) (bf to) sub))]))
 
 ;;Q5 - switcherbot
-  (define (switcherbot sent)
-    ;;insert your answer here
-    (error "not yet implemented")
-  )
+ (define (switcherbot sent)
+   (let ([viewpoint
+          (substitute 
+           '(me I am was my yours you you are were your mine) 
+           '(you you are were your mine me I am was my yours)
+           sent)]) 
+      (cond [(equal? 'me (first viewpoint)) (se 'I (bf viewpoint))]
+            [else (se viewpoint)])))
 
 
 ;;Q6 - inquisitivebot
