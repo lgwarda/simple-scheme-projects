@@ -175,9 +175,9 @@
 
 ;;Q8 - reactorbot-creator
   (define (reactorbot-creator bot pat out)
-    ;;insert your answer here
-    (error "not yet implemented")
-  )
+    (lambda (sent) (if (equal? sent pat) out (bot sent))))
+
+  
 
 ;;Q9 - replacerbot-creator
   (define (replacerbot-creator bot pat before after)
