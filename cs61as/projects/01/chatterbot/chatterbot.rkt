@@ -165,8 +165,9 @@
       (se (switcherbot sent) '?)))
 
 ;;Q7 - eliza
+(define reply (matcherbot-creator '(I am)))
+
  (define (eliza sent)
-   (define reply (matcherbot-creator '(I am)))
    (cond [(empty? sent) '(how can I help you ?)]
          [(equal? (first sent) 'hello) '(hello there!)]
          [(equal? (last sent) '?) '(I can not answer your question.)]
@@ -181,15 +182,12 @@
 
 ;;Q9 - replacerbot-creator
   (define (replacerbot-creator bot pat before after)
-    ;;insert your answer here
-    (error "not yet implemented")
-  )
+    (lambda (sent) (if (match? pat sent) 
+                       (se before (reply sent) after)
+                       (bot sent))))
 
 ;;Q10 - exagerate
-  (define (exaggerate bot n)
-    ;;insert your answer here
-    (error "not yet implemented")
-  )
+
 
 ;;REMEMBER TO ADD YOUR OWN TESTS TO GRADER.RKT!
 ;;END OF PROJECT 1
