@@ -187,7 +187,17 @@
                        (bot sent))))
 
 ;;Q10 - exagerate
+ (define (exaggerate bot num)
+   (if (zero? num)
+       bot
+       (lambda (sent) (bot ((exaggerate  bot (- num 1)) (add-very sent))))))
 
+
+(define (add-very sent)
+  (cond [(empty? sent) '()]
+        [else (if (adjective? (first sent))
+                  (se 'very (first sent) (add-very (bf sent)))
+                  (se (first sent) (add-very (bf sent))))]))
 
 ;;REMEMBER TO ADD YOUR OWN TESTS TO GRADER.RKT!
 ;;END OF PROJECT 1
