@@ -16,9 +16,7 @@
 ; Exericse 2 - Define phi
 
 (define (phi)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (fixed-point (lambda (x) (+ 1 (/ 1 x))) 0.1))
 
 (define tolerance 0.00001)
 
@@ -36,20 +34,29 @@
 
 ;; Recursive version
 (define (cont-frac n d k)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (define (recursiv i)
+    (cond [(> i k) 0]
+          [else (/ (n i) (+ (d i) (recursiv (+ i 1.0))))]))
+  (recursiv 1))
+
+
 
 ;; Iterative version
 (define (cont-frac-iter n d k)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (define (iter result i)
+    (cond [(zero? i) result]
+          [else (iter (/ (n 1) (+ (d i) result)) (sub1 i))]))
+  (iter k 0))
+
 
 (define (e k)
-  ; Your code here to estimate e using cont-frac with k terms.
-  (error "Not yet implemented")
-)
+  (+ (cont-frac (lambda (i) 1.0) euler k) 2))
+
+(define (euler i)
+  (if (zero? (remainder (+ i 1) 3))
+      (- i (quotient i 3))
+      1))
+
 
 ; Exercise 4 - Define next-perf
 
