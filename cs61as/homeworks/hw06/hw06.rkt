@@ -6,9 +6,12 @@
 ; Exercise 1 - Define fast-expt-iter
 
 (define (fast-expt-iter b n)
-  ; Your code here
-  (error "Not yet implemented")
-)
+  (define (iter a b n)
+    (cond [(zero? n) a]
+          [else (if (even? n)
+                    (iter a (square b) (/ n 2))
+                    (iter (* a b) b (- n 1)))]))
+  (iter 1 b n))
 
 ; Exericse 2 - Define phi
 
