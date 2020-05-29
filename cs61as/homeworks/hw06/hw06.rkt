@@ -61,9 +61,19 @@
 ; Exercise 4 - Define next-perf
 
 (define (next-perf n)
-  ;  Your code here
-  (error "Not yet implemented")
-)
+  (define (iter k)
+    (cond [(equal? (sum-of-factors k) k) k]
+          [else (iter (add1 k))]))
+  (iter n))
+
+(define (sum-of-factors n)
+  (define (find-factor divisor)
+    (cond [(zero? n) 1]
+          [(= divisor n) 0]
+          [else (if (zero? (remainder n divisor))
+                    (+ divisor (find-factor (add1 divisor)))
+                    (find-factor (add1 divisor)))]))
+  (find-factor 1))
 
 ; Exercise 5 - Explain what happens when the base cases are interchanged.
 
