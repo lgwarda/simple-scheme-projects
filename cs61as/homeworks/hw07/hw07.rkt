@@ -22,22 +22,25 @@
 (define (make-interval a b) (cons a b))
 
 (define (upper-bound interval)
-  (error "Not yet implemented"))
+  (max (car interval) (cdr interval)))
 
 (define (lower-bound interval)
-  (error "Not yet implemented"))
+  (min (car interval) (cdr interval)))
 
 ; SICP 2.8 - Define sub-interval
 
-(define (sub-interval x y)
-  (error "Not yet implemented"))
+(define (sub-interval x y) 
+   (make-interval (- (lower-bound x) (upper-bound y)) 
+                  (- (upper-bound x) (lower-bound y)))) 
 
 ; SICP 2.10 - Modify div-interval
 
-(define (div-interval x y)
-  (mul-interval x 
-                (make-interval (/ 1 (upper-bound y))
-                               (/ 1 (lower-bound y)))))
+(define (div-interval x y) 
+   (if (<= 0 (* (lower-bound y) (upper-bound y))) 
+       (error "Division error (interval spans 0)" y) 
+       (mul-interval x  
+                     (make-interval (/ 1. (upper-bound y)) 
+                                    (/ 1. (lower-bound y)))))) 
 
 
 ;SICP 2.12 - Define make-center-percent and percent
@@ -49,18 +52,27 @@
 (define (width i)
   (/ (- (upper-bound i) (lower-bound i)) 2))
 
-(define (make-center-percent c tol)
-  (error "Not yet implemented"))
+(define (make-center-percent c tol) 
+  (let ([width (* c (/ tol 100.0))]) 
+    (make-interval (- c width) (+ c width))))
+
+(define (percent i) 
+   (let ([center (/ (+ (upper-bound i) (lower-bound i)) 2.0)]
+         [width (/ (- (upper-bound i) (lower-bound i)) 2.0)]) 
+     (* (/ width center) 100)))
+
 
 ; SICP 2.17 - Define last-pair
 
 (define (last-pair lst)
-  (error "Not yet implemented"))
+  (cons (list-ref lst (sub1 (length lst))) '()))
 
 ; SICP 2.20 - Define same-parity
 
-(define (same-parity your-args-here)
-  (error "Not yet implemented. Do not forget to edit the arguments of this procedure as well."))
+(define (same-parity . args)
+ (if (even? (car args))
+     (filter even? args)
+     (filter odd? args)))
 
 ; SICP 2.22 - Write your explanation in the comment block:
 
