@@ -83,9 +83,25 @@ Your explanation here
 ; Exercise 2 - Define my-substitute
 
 (define (substitute lst old new)
-  (error "Not yet implemented"))
+  (define (inner elm)
+  (cond [(empty? elm) '()]
+        [(equal? old elm) new]
+        [else (if (list? elm)
+                  (cons (inner (car elm))
+                        (inner (cdr elm)))
+                  elm)]))
+  (inner lst))
 
 ; Exercise 3 - Define my-substitute2
 
 (define (substitute2 lst old new)
-  (error "Not yet implemented"))
+  (define (inner elm)
+    (cond [(empty? elm) '()]
+          [(list? elm) (cons (inner (car elm)) (inner (cdr elm)))]
+          [(member? elm old) (replace elm old new)]
+          [else (word elm)]))
+  (inner lst))
+
+(define (replace wd lst1 lst2)
+    (cond [(equal? wd (car lst1)) (car lst2)]
+          [else (replace wd (cdr lst1) (cdr lst2))]))
