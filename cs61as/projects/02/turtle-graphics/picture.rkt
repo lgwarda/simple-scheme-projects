@@ -156,8 +156,13 @@
 
 ;; Exercise 1
 
+
 (define (up-split painter n)
-  (error "not yet implemented"))
+  (if (zero? n)
+      painter
+      (let ([smaller (up-split painter (sub1 n))])
+        (below painter (beside smaller smaller)))))
+
 
 ;; Exercise 2
 
