@@ -198,31 +198,27 @@
 
 ; First definition of make-frame
 
+; First definition of make-frame
+
 (define (make-frame origin edge1 edge2)
   (list origin edge1 edge2))
 
-(define origin-frame
-  "not yet implemented")
+(define origin-frame (lambda (frame) (list-ref frame 0)))
 
-(define edge1-frame
-  "not yet implemented")
+(define edge1-frame (lambda (frame) (list-ref frame 1)))
 
-(define edge2-frame
-  "not yet implemented")
+(define edge2-frame (lambda (frame) (list-ref frame 2)))
 
 ; Second definition of make-frame
 
 (define (make-frame-2 origin edge1 edge2)
   (cons origin (cons edge1 edge2)))
 
-(define origin-frame-2
-  "not yet implemented")
+(define origin-frame-2 (lambda (frame) (car frame)))
 
-(define edge1-frame-2
-  "not yet implemented")
+(define edge1-frame-2 (lambda (frame) (cadr frame)))
 
-(define edge2-frame-2
-  "not yet implemented")
+(define edge2-frame-2 (lambda (frame) (cddr frame)))
 
 ;; Exercise 5
 
