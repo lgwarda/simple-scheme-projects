@@ -156,7 +156,6 @@
 
 ;; Exercise 1
 
-
 (define (up-split painter n)
   (if (zero? n)
       painter
@@ -167,7 +166,10 @@
 ;; Exercise 2
 
 (define (split major minor)
-  (error "not yet implemented"))
+ (lambda (painter n)
+      (let ([smaller ((split major minor) painter (sub1 n))])
+        (major painter (minor smaller smaller)))))
+
 
 ;; Exercise 3
 
