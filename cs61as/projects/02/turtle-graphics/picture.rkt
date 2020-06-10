@@ -174,22 +174,25 @@
 ;; Exercise 3
 
 (define (make-vect major minor)
-  (void "not yet implemented"))
+  (cons major minor))
 
 (define xcor-vect
-  "not yet implemented")
+  (lambda (v) (car v)))
 
 (define ycor-vect
-  "not yet implemented")
+  (lambda (v) (cdr v)))
 
 (define (add-vect v1 v2)
-  (error "not yet implemented"))
+  (make-vect (+ (xcor-vect v1)(xcor-vect v2))
+             (+ (ycor-vect v1)(ycor-vect) v2)))
 
 (define (sub-vect v1 v2)
-  (error "not yet implemented"))
+  (make-vect (- (xcor-vect v1)(xcor-vect v2))
+             (- (ycor-vect v1)(ycor-vect) v2)))
 
 (define (scale-vect s v)
-  (error "not yet implemented"))
+  (make-vect (* (xcor-vect v) s)
+             (* (ycor-vect v) s)))
 
 ;; Execise 4
 
