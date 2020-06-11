@@ -222,14 +222,11 @@
 
 ;; Exercise 5
 
-(define make-segment
-  "not yet implemented")
+(define make-segment (λ (v1 v2) (cons v1 v2)))
 
-(define start-segment
-  "not yet implemented")
+(define start-segment (λ (seg) (car seg)))
 
-(define end-segment
-  "not yet implemented")
+(define end-segment (λ (seg) (cdr seg)))
 
 ;; Exercise 6
 
