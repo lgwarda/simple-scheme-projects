@@ -222,25 +222,84 @@
 
 ;; Exercise 5
 
-(define make-segment (λ (v1 v2) (cons v1 v2)))
+(define make-segment (lambda (v1 v2) (cons v1 v2)))
 
-(define start-segment (λ (seg) (car seg)))
+(define start-segment (lambda (seg) (car seg)))
 
-(define end-segment (λ (seg) (cdr seg)))
+(define end-segment (lambda (seg) (cdr seg)))
 
 ;; Exercise 6
 
+(define diag-painter
+  (segments->painter
+   (list (make-segment (make-vect 1 0)
+                       (make-vect 0 1)))))
+
 (define outline-painter
-  "not yet implemented")
+  (segments->painter
+   (list (make-segment (make-vect 0 0)
+                       (make-vect 0 1))
+         (make-segment (make-vect 0 0)
+                       (make-vect 1 0))
+         (make-segment (make-vect 0 1)
+                       (make-vect 1 1))
+         (make-segment (make-vect 1 0)
+                       (make-vect 1 1)))))
 
 (define x-painter
-  "not yet implemented")
+  (segments->painter
+    (list (make-segment (make-vect 1 0)
+                        (make-vect 0 1))
+          (make-segment (make-vect 0 0)
+                        (make-vect 1 1)))))
 
 (define diamond-painter
-  "not yet implemented")
+  (segments->painter
+   (list (make-segment (make-vect 0.5 0)
+                       (make-vect 1 0.5))
+         (make-segment (make-vect 0 0.5)
+                       (make-vect 0.5 0))
+         (make-segment (make-vect 0 0.5)
+                       (make-vect 0.5 1))
+         (make-segment (make-vect 0.5 1)
+                       (make-vect 1 0.5)))))
 
 (define wave-painter
-  "not yet implemented")
+  (segments->painter
+   (list (make-segment (make-vect 0 0.7)
+                       (make-vect 0.2 0.5))
+         (make-segment (make-vect 0 0.5)
+                       (make-vect 0.2 0.3))
+         (make-segment (make-vect 0.2 0.5)
+                       (make-vect 0.3 0.6))
+         (make-segment (make-vect 0.3 0.6)
+                       (make-vect 0.4 0.6))
+         (make-segment (make-vect 0.4 0.6)
+                       (make-vect 0.3 0.8))
+         (make-segment (make-vect 0.3 0.8)
+                       (make-vect 0.4 1))
+         (make-segment (make-vect 0.2 0.3)
+                       (make-vect 0.3 0.5))
+         (make-segment (make-vect 0.3 0.5)
+                       (make-vect 0.4 0.4))
+         (make-segment (make-vect 0.4 0.4)
+                       (make-vect 0.2 0))
+         (make-segment (make-vect 0.5 0.3)
+                       (make-vect 0.4 0))
+         (make-segment (make-vect 0.5 0.3)
+                       (make-vect 0.6 0))
+         (make-segment (make-vect 0.6 1)
+                       (make-vect 0.7 0.8))
+         (make-segment (make-vect 0.6 0.6)
+                       (make-vect 0.7 0.8))
+         (make-segment (make-vect 0.6 0.6)
+                       (make-vect 0.7 0.6))
+         (make-segment (make-vect 1 0.4)
+                       (make-vect 0.7 0.6))
+         (make-segment (make-vect 0.7 0.4)
+                       (make-vect 1 0.3))
+         (make-segment (make-vect 0.7 0.4)
+                       (make-vect 0.8 0)))))
 
 ;; Exercise 7
 
