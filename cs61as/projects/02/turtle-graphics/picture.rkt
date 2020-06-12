@@ -255,20 +255,20 @@
 
 (define diamond-painter
   (segments->painter
-   (list (make-segment (make-vect 0.5 0)
-                       (make-vect 1 0.5))
-         (make-segment (make-vect 0 0.5)
-                       (make-vect 0.5 0))
-         (make-segment (make-vect 0 0.5)
-                       (make-vect 0.5 1))
-         (make-segment (make-vect 0.5 1)
-                       (make-vect 1 0.5)))))
+   (list (make-segment (make-vect 0.5 0.0)
+                       (make-vect 1.0 0.5))
+         (make-segment (make-vect 0.0 0.5)
+                       (make-vect 0.5 0.0))
+         (make-segment (make-vect 0.0 0.5)
+                       (make-vect 0.5 1.0))
+         (make-segment (make-vect 0.5 1.0)
+                       (make-vect 1.0 0.5)))))
 
 (define wave-painter
   (segments->painter
-   (list (make-segment (make-vect 0 0.7)
+   (list (make-segment (make-vect 0.0 0.7)
                        (make-vect 0.2 0.5))
-         (make-segment (make-vect 0 0.5)
+         (make-segment (make-vect 0.0 0.5)
                        (make-vect 0.2 0.3))
          (make-segment (make-vect 0.2 0.5)
                        (make-vect 0.3 0.6))
@@ -277,40 +277,51 @@
          (make-segment (make-vect 0.4 0.6)
                        (make-vect 0.3 0.8))
          (make-segment (make-vect 0.3 0.8)
-                       (make-vect 0.4 1))
+                       (make-vect 0.4 1.0))
          (make-segment (make-vect 0.2 0.3)
                        (make-vect 0.3 0.5))
          (make-segment (make-vect 0.3 0.5)
                        (make-vect 0.4 0.4))
          (make-segment (make-vect 0.4 0.4)
-                       (make-vect 0.2 0))
+                       (make-vect 0.2 0.0))
          (make-segment (make-vect 0.5 0.3)
-                       (make-vect 0.4 0))
+                       (make-vect 0.4 0.0))
          (make-segment (make-vect 0.5 0.3)
-                       (make-vect 0.6 0))
-         (make-segment (make-vect 0.6 1)
+                       (make-vect 0.6 0.0))
+         (make-segment (make-vect 0.6 1.0)
                        (make-vect 0.7 0.8))
          (make-segment (make-vect 0.6 0.6)
                        (make-vect 0.7 0.8))
          (make-segment (make-vect 0.6 0.6)
                        (make-vect 0.7 0.6))
-         (make-segment (make-vect 1 0.4)
+         (make-segment (make-vect 1.0 0.4)
                        (make-vect 0.7 0.6))
          (make-segment (make-vect 0.7 0.4)
-                       (make-vect 1 0.3))
+                       (make-vect 1.0 0.3))
          (make-segment (make-vect 0.7 0.4)
-                       (make-vect 0.8 0)))))
+                       (make-vect 0.8 0.0)))))
 
 ;; Exercise 7
 
 (define (flip-horiz painter)
-  (error "not yet implemented"))
+  (transform-painter painter
+                     (make-vect 1.0 1.0)
+                     (make-vect 0.0 0.0)
+                     (make-vect 1.0 1.0)))
 
 (define (rotate180 painter)
-  (error "not yet implemented"))
+  (transform-painter painter
+                     (make-vect 1.0 1.0)
+                     (make-vect 0.0 1.0)
+                     (make-vect 1.0 0.0)))
+
 
 (define (rotate270 painter)
-  (error "not yet implemented"))
+  (transform-painter painter
+                     (make-vect 1.0 1.0)
+                     (make-vect 0.0 0.0)
+                     (make-vect 1.0 1.0)))
+
 
 ;; Exercise 8
 
