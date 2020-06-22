@@ -77,7 +77,6 @@
 ;Exercise 3b - Define tree-map
 
 (define (tree-map fn tree)
-  (define (tree-map fn tree)
     (map (λ (sub-tree)
           (if (pair? sub-tree)
               (tree-map fn sub-tree)
@@ -89,8 +88,8 @@
 (define (accumulate-n op init seqs)
   (if (null? (car seqs))
       '()
-      (cons (foldr op init "YOUR CODE HERE")
-	    (accumulate-n op init "YOUR CODE HERE"))))
+      (cons (accumulate op init (map car seqs))
+            (accumulate-n op init (map cdr seqs)))))
 
 ;Exercise 5 - Complete the definitions of matrix-*-vector, transpose,
 ; and matrix-*-matrix.
