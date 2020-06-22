@@ -68,7 +68,11 @@
 ;Exercise 3a - Define square-tree
 
 (define (square-tree d-l)
-  (error "Not yet implemented"))
+  (map (λ (sub-tree)
+         (if (pair? sub-tree)
+             (square-tree sub-tree)
+             (square sub-tree)))
+       d-l))
 
 ;Exercise 3b - Define tree-map
 
