@@ -33,7 +33,12 @@
 ; b. Define total-weight.
 
 (define (total-weight mobile)
-  (error "Not yet implemented"))
+  (cond [(null? mobile) 0]
+        [else (if (not (pair? mobile))
+                  mobile
+                  (+ (total-weight (branch-structure (left-branch mobile)))
+                     (total-weight (branch-structure (right-branch mobile)))))]))
+
 
 ; c. Define balanced?
 
