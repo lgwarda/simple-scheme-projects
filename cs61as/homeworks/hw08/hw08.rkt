@@ -77,7 +77,13 @@
 ;Exercise 3b - Define tree-map
 
 (define (tree-map fn tree)
-  (error "Not yet implemented"))
+  (define (tree-map fn tree)
+    (map (λ (sub-tree)
+          (if (pair? sub-tree)
+              (tree-map fn sub-tree)
+              (fn sub-tree)))
+       tree))
+
 
 ;Exercise 4 -  Complete the definition of accumulate-n
 (define (accumulate-n op init seqs)
