@@ -98,14 +98,14 @@
   (foldr + 0 (map * v w)))
 
 (define (matrix-*-vector m v)
-  (map "YOUR CODE HERE" m))
+  (map (λ (col) (dot-product col v)) m))
 
 (define (transpose mat)
-  (accumulate-n "YOUR CODE HERE" "YOUR CODE HERE" mat))
+  (accumulate-n cons nil mat))
 
 (define (matrix-*-matrix m n)
   (let ((cols (transpose n)))
-    (map "YOUR CODE HERE" m)))
+    (map (λ (x) (map (λ (y) (dot-product x y)) cols)) m)))
 
 
 ;Exercise 6 - Give the property that op should satisfy:
