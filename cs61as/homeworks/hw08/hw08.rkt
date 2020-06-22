@@ -119,7 +119,11 @@ Your property here
 ;Exercise 7 - Define equal?
 
 (define (my-equal? l1 l2)
-  (error "Not yet implemented"))
+  (or (eq? l1 l2)
+      (and (pair? l1)
+           (pair? l2)
+           (equal? (car l1) (car l2))
+           (equal? (cdr l1) (cdr l2)))))
 
 ;Exercise 8 - Complete the definition of subsets
 (define (subsets s)
