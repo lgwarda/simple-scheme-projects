@@ -42,8 +42,17 @@
 
 ; c. Define balanced?
 
-(define (balanced? b-mobile)
-  (error "Not yet implemented"))
+(define (balanced? mobile) 
+   (if (not (pair? mobile)) 
+       true 
+       (and (equal? (torque (left-branch mobile))
+                    (torque (right-branch mobile))) 
+            (balanced? (branch-structure (left-branch mobile))) 
+            (balanced? (branch-structure (right-branch mobile))))))
+
+(define (torque branch) 
+   (* (branch-length branch)
+      (total-weight (branch-structure branch)))) 
 
 ; d. Redefine all the necessary procedures to work with the new
 ; constructors given below.
