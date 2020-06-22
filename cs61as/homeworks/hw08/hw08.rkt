@@ -89,8 +89,8 @@
 (define (accumulate-n op init seqs)
   (if (null? (car seqs))
       '()
-      (cons (foldr op init "YOUR CODE HERE")
-	    (accumulate-n op init "YOUR CODE HERE"))))
+      (cons (accumulate op init (map car seqs))
+            (accumulate-n op init (map cdr seqs)))))
 
 ;Exercise 5 - Complete the definitions of matrix-*-vector, transpose,
 ; and matrix-*-matrix.
