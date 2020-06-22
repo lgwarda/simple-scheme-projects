@@ -19,13 +19,16 @@
 ; branch-structure.
 
 (define (left-branch mobile)
-  (error "Not yet implemented"))
+  (list-ref mobile 0))
 
 (define (right-branch mobile)
-  (error "Not yet implemented"))
+  (list-ref mobile 1))
+
+(define (branch-length branch)
+  (list-ref branch 0))
 
 (define (branch-structure branch)
-  (error "Not yet implemented"))
+  (list-ref branch 1))
 
 ; b. Define total-weight.
 
