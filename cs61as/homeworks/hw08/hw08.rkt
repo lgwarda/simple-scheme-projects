@@ -130,7 +130,7 @@ Your property here
   (if (null? s)
       (list '())
       (let ((rest (subsets (cdr s))))
-        (append rest (map "YOUR CODE HERE" rest)))))
+        (append rest (map (λ (x) (cons (car s) x)) rest)))))
 
 
 ;Exercuse 9 - Modify the calc program
