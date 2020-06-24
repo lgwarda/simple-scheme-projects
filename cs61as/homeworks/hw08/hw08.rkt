@@ -150,7 +150,7 @@ Your property here
 (define (calc-eval exp)
   (cond ((number? exp) exp)
 	((list? exp) (calc-apply (car exp) (map calc-eval (cdr exp))))
-	(else (error "Calc: bad expression:" exp))))
+	(else exp)))
 
 ; Apply a function to arguments:
 
@@ -163,4 +163,11 @@ Your property here
 	((eq? fn '/) (cond ((null? args) (error "Calc: no args to /"))
 			   ((= (length args) 1) (/ (car args)))
 			   (else (/ (car args) (foldr * 1 (cdr args))))))
+        ((eq? fn 'first) (first (car args)))
+        ((eq? fn 'butfirst) (bf (car args)))
+        ((eq? fn 'bf) (bf (car args)))
+        ((eq? fn 'word) (foldr word "" args))
+        ((eq? fn 'bl) (bl (car args)))
+        ((eq? fn 'butlast) (bl (car args)))
+        ((eq? fn 'last) (last (car args)))
 	(else (error "Calc: bad operator:" fn))))
