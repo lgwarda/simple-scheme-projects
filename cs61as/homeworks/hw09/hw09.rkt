@@ -60,8 +60,13 @@ d. Explain.
 (define (ang-mp z) (apply-generic-message-passing 'ang z))
 
 (define (make-from-mag-ang-mp r a)
-  '(YOUR CODE HERE)
-)
+  (define (dispatch op) 
+         (cond [(eq? op 'real-part) (* r (cos a))] 
+               [(eq? op 'imag-part) (* r (sin a))];
+               [(eq? op 'magnitude) r ]
+               [(eq? op 'angle) a]
+               [else (error "Unkown op --- MAKE-FROM-MAG-ANG" op)]))
+   dispatch)
 
 #|
 2.76 Describe the changes.
