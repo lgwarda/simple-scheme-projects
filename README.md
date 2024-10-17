@@ -1,19 +1,18 @@
 # Programming Learning Resources
 
-This repository contains my learning journey through various computer science resources:
+This repository contains my learning journey through various computer science resources, organized by programming language.
 
-- `/berkeley`: Course materials and solutions from Berkeley CS courses
-- `/htdp2e`: Solutions for How to Design Programs, Second Edition
-- `/sicp`: Solutions for Structure and Interpretation of Computer Programs 
-- `/simply-scheme`: Solutions for Simply Scheme
+## Directory Structure
 
-## Future Improvements
+- `/racket`: Course materials and solutions related to Racket programming, including:
+  - `/htdp2e`: Solutions for How to Design Programs, Second Edition.
+  - `/simply-scheme`: Solutions for Simply Scheme.
+  - `/algorithms`: Some solutions to intermediate algorithms.
 
-In the near future, I plan to refactor the directory structure of this repository to ensure that each directory maintains its original commit history and can be updated independently. This will be achieved by converting each directory into a Git submodule. 
+### Future Improvements
 
-### Benefits of This Change
-- **Independent Histories**: Each directory will have its own commit history, making it easier to track changes specific to each course.
-- **Modularity**: Updates to individual directories can be made without affecting others, promoting cleaner and more manageable code.
-- **Clarity**: The overall structure will be more organized, aligning with best practices in version control.
+In the near future, I plan to further organize resources and ensure each directory maintains its original commit history.
 
-Stay tuned for updates as I implement these changes!
+### Contributions
+
+Feel free to contribute to this repository or suggest improvements!
